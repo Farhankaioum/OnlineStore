@@ -1,0 +1,15 @@
+﻿@model int
+
+<td style="width:150px">
+    <div class="btn-group">
+        <a asp-action="Edit" asp-controller="ProductTypes" class="btn btn-primary" asp-route-id="@Model" title="Edit">
+            <i class="far fa-edit"> </i>
+        </a>
+        <a asp-action="Details" asp-controller="ProductTypes" class="btn btn-info" asp-route-id="@Model" title="Details">
+            <i class="fas fa-list-ul"></i>
+        </a>
+        <form method="post" asp-action="Delete" asp-route-id="@Model">
+            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')"><i class="fas fa-trash-alt"></i></button>
+        </form>
+    </div>
+</td>

@@ -1,0 +1,17 @@
+﻿@model ProductTypes
+@{
+    ViewData["Title"] = "Details";
+}
+
+<br/>
+<h2 class="text-info">Product Type Details</h2>
+<div class="card" style="width:15rem">
+    <img class="card-img-top" src="" alt="Product image"/>
+    <div class="card-body">
+        <h5 class="card-title">@Model.ProductType</h5>
+    </div>
+    <div class="card-footer">
+        <partial name="_detailsButtonPartial" model="@Model.Id" />
+    </div>
+</div>
+
