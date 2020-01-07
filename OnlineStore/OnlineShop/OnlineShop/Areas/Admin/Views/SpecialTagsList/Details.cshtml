@@ -1,0 +1,17 @@
+﻿@model SpecialTagList
+@{
+    ViewData["Title"] = "Details";
+}
+
+<br />
+<h2 class="text-info">Special Tag Details</h2>
+<div class="card col-md-6">
+ 
+    <div class="card-body">
+        <h5 class="card-title">@Model.TagName</h5>
+    </div>
+    <div class="card-footer">
+        <partial name="_detailsButtonPartial" model="@Model.Id" />
+    </div>
+</div>
+

@@ -2,7 +2,8 @@
 
 <td style="width:150px">
     <div class="btn-group">
-        <a asp-action="Edit" asp-controller="ProductTypes" class="btn btn-primary" asp-route-id="@Model" title="Edit">
+        <a asp-action="Index" class="btn btn-primary" title="Back"><i class="fas fa-long-arrow-alt-left"></i></a>
+        <a asp-action="Edit" class="btn btn-info" asp-route-id="@Model" title="Edit">
             <i class="far fa-edit"> </i>
         </a>
         <form method="post" asp-action="Delete" asp-route-id="@Model">
