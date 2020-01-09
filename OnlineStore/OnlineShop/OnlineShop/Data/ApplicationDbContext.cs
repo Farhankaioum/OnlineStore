@@ -13,7 +13,11 @@ namespace OnlineShop.Data
             : base(options)
         {
         }
+        
         public DbSet<ProductTypes> ProductTypes { get; set; }
         public DbSet<SpecialTagList> SpecialTagList { get; set; }
+        public DbSet<Products> Products { get; set; }
+
+
     }
 }

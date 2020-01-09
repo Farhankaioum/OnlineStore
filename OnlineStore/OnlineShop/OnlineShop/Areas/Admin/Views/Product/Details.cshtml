@@ -1,0 +1,92 @@
+﻿@model Products
+@{
+    ViewData["Title"] = "Details Product";
+}
+<br />
+
+<h2 class="text-info">Details of Product </h2>
+<form method="post">
+    <div class="p-4 rounded border row">
+        <div class="col-8">
+
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Name"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Name" class="form-control" disabled />
+                </div>
+
+            </div>
+
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Price"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Price" class="form-control" disabled />
+                </div>
+
+            </div>
+
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="ProductColor"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="ProductColor" class="form-control" disabled />
+                </div>
+
+            </div>
+
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="ProductTypeId"></label>
+                </div>
+                <div class="col-8">
+                    <select asp-for="ProductTypeId" asp-items="@ViewBag.productTypeId" class="form-control" disabled></select>
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="SpecialTagId"></label>
+                </div>
+                <div class="col-8">
+                    <select asp-for="SpecialTagId" asp-items="ViewBag.TagId" class="form-control" disabled></select>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="IsAvailable" class="form-check-label"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="IsAvailable" class="form-check-input" disabled />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <partial name="_detailsButtonPartial" model="@Model.Id" />
+            </div>
+        </div>
+        <div class="col-1"></div>
+        <div class="col-3">
+            <img src="~/@Model.Image" alt="Product Image"
+                 style="box-sizing:border-box; width:100%; border:1px solid black; border-radius:2px;" />
+        </div>
+    </div>
+    
+</form>
+
+
+
+@*For client side loading, such as form submiting loading, this file coming from shared folder*@
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial.cshtml");
+    }
+}
+
