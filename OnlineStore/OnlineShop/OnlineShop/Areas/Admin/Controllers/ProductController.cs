@@ -31,6 +31,17 @@ namespace OnlineShop.Areas.Admin.Controllers
             var products = _db.Products.Include( c => c.ProductTypes).Include( c => c.SpecialTag).ToList();
             return View(products);
         }
+        [HttpPost]
+        public IActionResult Index(decimal? lowRange, decimal? highRange)
+        {
+            var products = _db.Products.Include(c => c.ProductTypes).Include(c => c.SpecialTag)
+                .Where(c => c.Price >= lowRange).Where(c => c.Price <= highRange ).ToList();
+            if (lowRange == null || highRange == null)
+            {
+                products = _db.Products.Include(c => c.ProductTypes).Include(c => c.SpecialTag).ToList();
+            }
+            return View(products);
+        }
 
         //Product adding start here
         [HttpGet]

@@ -1,0 +1,77 @@
+﻿@model Products
+
+@{
+    ViewData["Title"] = "Details Page";
+}
+<br/>
+<div class="row">
+        <input type="hidden" asp-for="Id" />
+        <div class="col-6 ">
+            <div class="card mb-2">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">
+                        <label style="font-size:23px; color:steelblue">@Model.Name</label>
+                    </h4>
+                </div>
+                <img src="~/@Model.Image" alt="Product Image" class="card-img-top" style="height:280px;" />
+                <div class="card-header">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a asp-action="" asp-controller="Home" asp-route-id="@Model.Id"
+                           class="btn btn-info form-control mt-2 mb-2" style="font-size:20px">Add to Card</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 text-info">
+            <div class="card">
+                <div class="card-body">
+                    <label><b style="font-size:20px; color:#a51313">Price : @Model.Price</b></label>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Type: @Model.SpecialTag.TagName</h5>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Color: @Model.ProductColor</h5>
+                </div>
+                <div class="card-body">
+                    @if (Model.IsAvailable == true)
+                    {
+                        <h5 class="card-title">Product Available</h5>
+                    }
+                    else
+                    {
+                        <h5 class="card-title">Product not Available</h5>
+                    }
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Product Type: @Model.ProductTypes.ProductType</h5>
+                </div>
+                <div class="card-footer">
+
+                    <div class="col-3">
+                        @if (Model.IsAvailable)
+                        {
+                            <img src="~/Images/instock-logo.png" width="200px" height="50px" />
+                        }
+                        else
+                        {
+                            <img src="~/Images/notinstock.jpg" width="200px" height="50px" />
+                        }
+                    </div>
+
+
+                    @*for product rating start*@
+
+                    @*for product rating end*@
+
+
+                </div>
+            </div>
+        </div>
+</div>
+@section scripts{ 
+    <script>
+        //for product rating
+      </script>
+}
+
