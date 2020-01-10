@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using OnlineShop.Data;
 using OnlineShop.Models;
 using OnlineShop.Utilities;
+using X.PagedList;
 
 namespace OnlineShop.Controllers
 {
@@ -22,9 +23,9 @@ namespace OnlineShop.Controllers
             this._db = db;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int? page)
         {
-            var productData = _db.Products.Include(c => c.ProductTypes).Include(c => c.SpecialTag).ToList();
+            var productData = _db.Products.Include(c => c.ProductTypes).Include(c => c.SpecialTag).ToList().ToPagedList(page??1, 9);
             return View(productData);
         }
         //Product details start here

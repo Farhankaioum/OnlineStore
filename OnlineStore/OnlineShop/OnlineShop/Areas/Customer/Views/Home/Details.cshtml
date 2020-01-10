@@ -28,15 +28,22 @@
                     <form method="post">
                         @if (product != null)
                         {
-                            
-                            <button type-="submit" asp-action="RemoveProductFromCart" asp-route-id="@Model.Id" 
-                            class="btn btn-danger form-control mt-2 mb-2">
-                                    Remove To Cart
+
+                            <button type-="submit" asp-action="RemoveProductFromCart" asp-route-id="@Model.Id"
+                                    class="btn btn-danger form-control mt-2 mb-2">
+                                Remove To Cart
                             </button>
+                        }
+                        else if (product == null && Model.IsAvailable == true)
+                        {
+                            <input type="submit" class="btn btn-info form-control mt-2 mb-2" value="Add To Cart" />
                         }
                         else
                         {
-                            <input type="submit" class="btn btn-info form-control mt-2 mb-2" value="Add To Cart" />
+                            <button type-="submit" asp-action="Add to Card" disabled asp-route-id="@Model.Id"
+                                    class="btn btn-info form-control mt-2 mb-2" title="Product is not available">
+                                Add To Cart
+                            </button>
                         }
 
                     </form>
