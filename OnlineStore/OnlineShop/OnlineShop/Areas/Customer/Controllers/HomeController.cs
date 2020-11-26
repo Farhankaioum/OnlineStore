@@ -47,6 +47,7 @@ namespace OnlineShop.Controllers
         }
         [HttpPost]
         [ActionName("Details")]
+        [ValidateAntiForgeryToken]
         public ActionResult Productdetails(int? id)
         {
             List<Products> products = new List<Products>();
@@ -73,6 +74,7 @@ namespace OnlineShop.Controllers
 
         //for remove cart adding product
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult RemoveProductFromCart(int? id)
         {
             List<Products> products = HttpContext.Session.Get<List<Products>>("products");

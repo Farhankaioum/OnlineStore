@@ -17,7 +17,7 @@ namespace OnlineShop.Areas.Customer.Controllers
 
         public OrderController(ApplicationDbContext db)
         {
-            this._db = db;
+            _db = db;
         }
 
         //For product checkout or bought product
